@@ -11,7 +11,6 @@
   <style>
     :root {
       --red: #d00024;
-      --gray: #666666;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -30,11 +29,17 @@
       top: 30px;
       right: 30px;
       z-index: 10;
+      display: flex;
+      gap: 8px;
+      background: rgba(0,0,0,0.2);
+      padding: 6px;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
     }
     .lang-switch button {
-      background: rgba(255,255,255,0.15);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.25);
+      background: transparent;
+      color: #ccc;
+      border: none;
       padding: 8px 14px;
       border-radius: 8px;
       font-size: 0.95rem;
@@ -46,88 +51,38 @@
       color: #262a35;
       font-weight: 600;
     }
-    .container {
-      max-width: 720px;
-      text-align: center;
-    }
-    .logo {
-      max-width: 280px;
-      margin-bottom: 4.5rem;
-    }
-    h1 {
-      font-size: 4.5rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 1.5rem;
-      letter-spacing: -1px;
-    }
-    .tagline {
-      font-size: 1.45rem;
-      max-width: 620px;
-      margin: 0 auto 4.5rem;
-      line-height: 1.7;
-      color: #e8e8e8;
-    }
-    .notify p {
-      font-size: 1.15rem;
-      margin-bottom: 1.8rem;
-      color: #ddd;
-    }
+
+    .container { max-width: 720px; text-align: center; }
+    .logo { max-width: 280px; margin-bottom: 4.5rem; }
+    h1 { font-size: 4.5rem; font-weight: 700; color: white; margin-bottom: 1.5rem; }
+    .tagline { font-size: 1.45rem; max-width: 620px; margin: 0 auto 4.5rem; line-height: 1.7; color: #e8e8e8; }
+    .notify p { font-size: 1.15rem; margin-bottom: 1.8rem; color: #ddd; }
     .email-form {
-      display: flex;
-      gap: 18px;
-      max-width: 520px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: flex; gap: 18px; max-width: 520px; margin: 0 auto; flex-wrap: wrap; justify-content: center;
     }
     input[type="email"] {
-      flex: 1;
-      min-width: 290px;
-      padding: 18px 26px;
-      border: none;
-      background: rgba(255,255,255,0.12);
-      color: white;
-      border-radius: 12px;
-      font-size: 1.1rem;
+      flex: 1; min-width: 290px; padding: 18px 26px; border: none;
+      background: rgba(255,255,255,0.12); color: white; border-radius: 12px; font-size: 1.1rem;
       backdrop-filter: blur(4px);
     }
     input[type="email"]::placeholder { color: #bbbbbb; }
-    input[type="email"]:focus {
-      outline: none;
-      background: rgba(255,255,255,0.2);
-    }
     button {
-      background: var(--red);
-      color: white;
-      border: none;
-      padding: 18px 44px;
-      border-radius: 12px;
-      font-size: 1.15rem;
-      font-weight: 600;
-      cursor: pointer;
+      background: var(--red); color: white; border: none; padding: 18px 44px;
+      border-radius: 12px; font-size: 1.15rem; font-weight: 600; cursor: pointer;
       transition: all 0.3s;
     }
-    button:hover {
-      background: #e00028;
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(208,0,36,0.4);
-    }
-    .footer {
-      margin-top: 6rem;
-      font-size: 0.95rem;
-      color: #aaa;
-    }
+    button:hover { background: #e00028; transform: translateY(-4px); box-shadow: 0 15px 35px rgba(208,0,36,0.4); }
+    .footer { margin-top: 6rem; font-size: 0.95rem; color: #aaa; }
     .footer a { color: #ccc; text-decoration: none; border-bottom: 1px solid #666; }
 
-    /* Language-specific text */
-    [lang="en"] { display: none; }
-    body.en [lang="en"] { display: block; }
-    body.en [lang="zh"] { display: none; }
+    /* Language display control */
+    [data-lang="zh"] { display: block; }
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="zh"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
 
     @media (max-width: 640px) {
       h1 { font-size: 3.4rem; }
-      .tagline { font-size: 1.3rem; }
       .email-form { flex-direction: column; }
       input[type="email"], button { width: 100%; }
       .lang-switch { top: 20px; right: 20px; }
@@ -145,26 +100,24 @@
 
     <img src="https://img.shoplineapp.com/media/image_clips/61a4738481ebd70029850e56/original.png?1638167428" alt="Logo" class="logo">
 
-    <h1 lang="zh">Kool Foundation</h1>
-    <h1 lang="en">Kool Foundation</h1>
+    <h1 data-lang="zh">Kool Foundation</h1>
+    <h1 data-lang="en">Kool Foundation</h1>
 
-    <p class="tagline" lang="zh">
-      我們正在籌備一個有意義的非牟利項目<br>
-      全新網站即將正式面世，敬請期待
+    <p class="tagline" data-lang="zh">
+      我們正在籌備一個有意義的非牟利項目<br>全新網站即將正式面世，敬請期待
     </p>
-    <p class="tagline" lang="en">
-      We are preparing a meaningful non-profit initiative<br>
-      The official website is launching very soon
+    <p class="tagline" data-lang="en">
+      We are preparing a meaningful non-profit initiative<br>The official website is launching very soon
     </p>
 
     <div class="notify">
-      <p lang="zh">網站上線時第一時間通知您</p>
-      <p lang="en">Get notified the moment we launch</p>
+      <p data-lang="zh">網站上線時第一時間通知您</p>
+      <p data-lang="en">Get notified the moment we launch</p>
 
       <form class="email-form" action="https://formspree.io/f/mzzqwnbk" method="POST">
         <input type="email" name="email" placeholder="your@email.com" required />
-        <button type="submit" lang="zh">立即訂閱</button>
-        <button type="submit" lang="en">Notify Me</button>
+        <button type="submit" data-lang="zh">立即訂閱</button>
+        <button type="submit" data-lang="en">Notify Me</button>
       </form>
     </div>
 
@@ -173,11 +126,9 @@
       <span lang="en">An initiative by <strong>Kool Ltd.</strong> • </span>
       <a href="https://www.kool.com.hk/">www.kool.com.hk</a>
     </div>
-
   </div>
 
   <script>
-    // Simple language toggle (no page reload)
     document.querySelectorAll('.lang-switch button').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
@@ -185,6 +136,5 @@
       });
     });
   </script>
-
 </body>
 </html>
