@@ -6,107 +6,135 @@
   <title>Kool Foundation – Coming Soon</title>
   <meta name="description" content="We are working hard to launch Kool Foundation. Stay tuned for something amazing." />
 
-  <!-- Google Fonts (optional but recommended) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary: #d00024;     
-      --dark: #0f172a;
-      --light: #f8fafc;
+      --red: #d00024;
+      --gray: #666666;
+      --dark: #111111;
+      --light: #ffffff;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      color: #e0e0e0;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 40px 20px;
+      line-height: 1.6;
     }
     .container {
-      max-width: 640px;
+      max-width: 680px;
       text-align: center;
     }
     .logo {
-      max-width: 220px;
-      margin-bottom: 2rem;
+      max-width: 260px;
+      height: auto;
+      margin-bottom: 4rem;
     }
     h1 {
-      font-size: 3.5rem;
+      font-size: 4.2rem;
       font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
+      color: white;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.5px;
     }
     .tagline {
-      font-size: 1.35rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.95;
-      font-weight: 300;
+      font-size: 1.4rem;
+      color: #bbbbbb;
+      max-width: 580px;
+      margin: 0 auto 4rem;
+      line-height: 1.65;
     }
     .notify {
-      margin-top: 3rem;
+      margin: 4rem 0;
+    }
+    .notify p {
+      font-size: 1.1rem;
+      color: #aaaaaa;
+      margin-bottom: 1.5rem;
     }
     .email-form {
       display: flex;
-      gap: 12px;
-      max-width: 420px;
+      gap: 16px;
+      max-width: 480px;
       margin: 0 auto;
       flex-wrap: wrap;
       justify-content: center;
     }
     input[type="email"] {
-      padding: 14px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
       flex: 1;
-      min-width: 250px;
+      min-width: 280px;
+      padding: 16px 24px;
+      border: 2px solid #333;
+      background: #1c1c1c;
+      color: white;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+    input[type="email"]:focus {
+      outline: none;
+      border-color: var(--red);
+      box-shadow: 0 0 0 4px rgba(208, 0, 36, 0.15);
     }
     button {
-      background: white;
-      color: var(--primary);
+      background: var(--red);
+      color: white;
       border: none;
-      padding: 14px 32px;
-      border-radius: 8px;
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.3s;
     }
     button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      background: #e00028;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(208, 0, 36, 0.3);
     }
     .footer {
-      margin-top: 5rem;
-      font-size: 0.9rem;
-      opacity: 0.7;
+      margin-top: 6rem;
+      font-size: 0.95rem;
+      color: #888;
     }
     .footer a {
-      color: white;
-      text-decoration: underline;
+      color: #aaa;
+      text-decoration: none;
+      border-bottom: 1px solid #555;
     }
-    @media (max-width: 600px) {
-      h1 { font-size: 2.8rem; }
+    .footer a:hover { color: white; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 3.2rem; }
+      .tagline { font-size: 1.25rem; }
       .email-form { flex-direction: column; }
-      button { width: 100%; }
+      input[type="email"], button { width: 100%; }
+      .logo { margin-bottom: 3rem; }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
+
     <img src="https://img.shoplineapp.com/media/image_clips/61a4738481ebd70029850e56/original.png?1638167428" alt="Logo" class="logo">
 
     <h1>Kool Foundation</h1>
-    <p class="tagline">We’re building something meaningful.<br>Something that will make a real difference.<br>Launch coming very soon.</p>
+    <p class="tagline">
+      We’re crafting a new way to create lasting impact.<br>
+      The official website is launching soon.
+    </p>
 
     <div class="notify">
-      <p>Get notified the moment we go live</p>
+      <p>Be the first to know when we go live</p>
       <form class="email-form" action="https://formspree.io/f/mzzqwnbk" method="POST">
-        <input type="email" name="email" placeholder="Enter your email" required />
+        <input type="email" name="email" placeholder="your@email.com" required />
         <button type="submit">Notify Me</button>
       </form>
     </div>
@@ -115,6 +143,7 @@
       An initiative by <strong>Kool Ltd</strong> • 
       <a href="https://www.kool.com.hk/">www.kool.com.hk</a>
     </div>
+
   </div>
 
 </body>
